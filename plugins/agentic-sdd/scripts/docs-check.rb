@@ -125,8 +125,11 @@ def check_links
     next if File.basename(f) == '_template.md'
 
     text = File.read(f)
-    fm, = split_frontmatter(text)
-    body = strip_code(text)
+    # Los wikilinks del frontmatter salen del YAML parseado (así los
+    # comentarios de ejemplo de las plantillas no cuentan); el texto se
+    # escanea solo en el cuerpo.
+    fm, raw_body = split_frontmatter(text)
+    body = strip_code(raw_body)
 
     body.scan(/\]\(([^)\s]+)\)/).flatten.each do |link|
       next if link.match?(%r{\A(?:[a-z]+:|#|/)})

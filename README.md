@@ -74,4 +74,5 @@ de scripts, aliases de git o targets de make.
   declara la misma versión (`make version-check` lo controla) para que
   `/agentic-sdd:docs-check` sepa si la copia de un proyecto quedó vieja.
 - **Antes de cada PR**: `make check` (agentes al día, pruebas del hook,
-  versiones consistentes y `claude plugin validate`).
+  pruebas de `docs-check` sobre un proyecto armado con las plantillas del
+  bootstrap, versiones consistentes y `claude plugin validate`).
