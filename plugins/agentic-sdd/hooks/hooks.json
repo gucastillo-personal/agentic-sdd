@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ruby",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/guard-git.rb"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+# manifest.yaml — composición del sistema {{PROYECTO}} (fuente de verdad)
+#
+# Qué repos hay, qué hace cada uno, con qué stack, qué contratos producen o
+# consumen y qué proveedores externos usan. Lo leen humanos y agentes como
+# primer paso de descubrimiento de contexto (ver CLAUDE.md).
+#
+# Reglas:
+# - Solo hechos de composición. El "cómo funciona" vive en docs/ y el "por
+#   qué" en docs/decisions/ (ADRs): acá solo se los referencia.
+# - Toda dependencia entre repos es un contrato: se declara una sola vez en
+#   `contracts` (productor → consumidores), nunca como `depends_on` por repo.
+# - El schema de cada contrato vive en un único documento (`schema`); este
+#   archivo no lo copia.
+# - Cada entrada de repositories, contracts y providers tiene su nota en
+#   docs/repos/, docs/contracts/ y docs/providers/ (lo valida docs-check).
+# - Se actualiza en la Fase 6 de /agentic-sdd:feature (cierre de
+#   conocimiento) cuando una feature agrega un repo, un contrato o un
+#   proveedor, o cambia un status.
+# - Campos que usan los agentes: ver reference/project-contract.md del
+#   plugin agentic-sdd.
+
+version: 1
+
+system:
+  name: {{PROYECTO}}
+  constitution: specs/constitution.md
+  decisions: docs/decisions/README.md
+  specs: specs/README.md
+
+repositories: {}
+  # <repo>:
+  #   path: <dir>                 # submódulo, o "." si el proyecto es un solo repo
+  #   status: planned             # planned | in-development | production | retired
+  #   type: web-frontend          # web-frontend | mobile-app | service | data-pipeline | infra | library
+  #   responsibility: >-
+  #     Una sola responsabilidad, en una o dos líneas.
+  #   stack: []
+  #   gate: <comando que tiene que pasar antes de "listo">
+  #   deploy: <cómo llega a producción>
+  #   domains: []
+  #   providers: []
+  #   docs:
+  #     constitution: specs/constitution.md
+  #     brand: docs/brand.md      # repos con UI
+  #   foundational_decisions: []
+
+contracts: {}
+  # <contrato>:
+  #   kind: http/json
+  #   producer: <repo>
+  #   consumers:
+  #     <repo>: <cómo lo consume>
+  #   schema: <ruta al documento único del schema>
+
+providers: {}
+  # <proveedor>:
+  #   services: []
+  #   cost: <free | tope en ADR-NNNN>

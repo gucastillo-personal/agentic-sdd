@@ -1,0 +1,14 @@
+{
+  "name": "gucastillo-tools",
+  "description": "Herramientas privadas de Gustavo Castillo para Claude Code",
+  "owner": {
+    "name": "Gustavo Castillo"
+  },
+  "plugins": [
+    {
+      "name": "agentic-sdd",
+      "source": "./plugins/agentic-sdd",
+      "description": "Spec-driven development con agentes: /feature, 7 agentes, bootstrap de base de conocimiento, docs-check y hooks de seguridad de git"
+    }
+  ]
+}
