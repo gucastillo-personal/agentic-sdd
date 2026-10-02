@@ -13,8 +13,9 @@ Las reglas de flujo de trabajo (aprobación humana, ramas, merges) no van
 acá: viven en [`CLAUDE.md`](../CLAUDE.md).
 
 > **Borrador del bootstrap.** Las invariantes de abajo son un punto de
-> partida que propone `agentic-sdd`. {{DUENO}} las revisa, borra las que no
-> apliquen y agrega las propias antes de la primera feature. Mientras diga
+> partida que propone `agentic-sdd`. Quien aprueba en este proyecto
+> ({{DUENO}}) las revisa, borra las que no apliquen y agrega las propias
+> antes de la primera feature. Mientras diga
 > "borrador", ningún agente las trata como cerradas.
 
 ---

@@ -14,8 +14,9 @@
 #   ruby scripts/docs-check.rb [raíz]     (por defecto, el directorio actual)
 #
 # Viene del plugin agentic-sdd; cada proyecto lleva una copia para que corra
-# sin el plugin (por ejemplo, en CI). VERSION dice de qué versión del plugin
-# salió: /agentic-sdd:docs-check avisa si la copia quedó vieja.
+# sin el plugin (por ejemplo, en CI). VERSION es la versión de este script,
+# independiente de la del plugin: sube solo cuando el script cambia, y
+# /agentic-sdd:docs-check la compara para avisar si la copia quedó vieja.
 # Sale con código 1 si hay errores. Las advertencias no fallan: cubren
 # referencias a submódulos sin inicializar o a repos todavía `planned`.
 

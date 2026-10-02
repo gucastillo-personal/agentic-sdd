@@ -9,6 +9,9 @@ agentes (`agentic-sdd:product-agent`, `agentic-sdd:ux-agent`,
 `agentic-sdd:tester-agent`) y el flujo `/agentic-sdd:feature`. Las reglas de
 este archivo se suman a las del plugin; nunca las relajan.
 
+**Quién aprueba en este proyecto:** {{DUENO}}. Cuando estas reglas dicen
+"quien aprueba", es esa persona.
+
 ## Nunca commitear ni pushear directo a `main`
 
 Ningún agente commitea ni pushea directo sobre `main`, en ningún repo del
@@ -27,8 +30,8 @@ equivalentes.
 ## Aprobación humana obligatoria antes de actuar
 
 - Ningún agente instala herramientas, paquetes o dependencias ni ejecuta
-  scripts que no sean de solo lectura sin aprobación explícita de
-  {{DUENO}}.
+  scripts que no sean de solo lectura sin aprobación explícita de quien
+  aprueba.
 - Antes de cada `git commit` y de cada `git push` hay que pedir aprobación
   explícita: no alcanza con haber aprobado la tarea en general.
 - Ningún agente despliega ni aplica infraestructura real.
@@ -40,7 +43,8 @@ o la experiencia visible por el usuario final — features nuevas y ajustes
 sobre pantallas existentes, por chico que sea — pasa por
 `agentic-sdd:ux-agent` antes de que otro agente diseñe o implemente esa
 parte. Su entregable (`ux.md` y, si corresponde, la maqueta) necesita
-aprobación explícita de {{DUENO}}: el silencio o un "ok" ambiguo no cuentan.
+aprobación explícita de quien aprueba: el silencio o un "ok" ambiguo no
+cuentan.
 
 ## Descubrimiento de contexto (base de conocimiento)
 

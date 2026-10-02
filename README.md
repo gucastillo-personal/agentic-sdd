@@ -70,9 +70,11 @@ de scripts, aliases de git o targets de make.
   `{{COMMON:<sección>}}`; `plugins/agentic-sdd/agents/` se genera con
   `make agents` y no se edita a mano.
 - **Versiones**: `plugin.json` fija `version`, así que **cada release sube
-  la versión** o los proyectos no reciben los cambios. `docs-check.rb`
-  declara la misma versión (`make version-check` lo controla) para que
-  `/agentic-sdd:docs-check` sepa si la copia de un proyecto quedó vieja.
+  la versión** o los proyectos no reciben los cambios. `docs-check.rb` tiene
+  **su propia** `VERSION`, que sube solo cuando cambia su código (no los
+  comentarios): cada proyecto lleva una copia y `/agentic-sdd:docs-check`
+  avisa cuando quedó vieja. `make script-version-check` falla si el código
+  cambió y la versión no.
 - **Antes de cada PR**: `make check` (agentes al día, pruebas del hook,
   pruebas de `docs-check` sobre un proyecto armado con las plantillas del
-  bootstrap, versiones consistentes y `claude plugin validate`).
+  bootstrap, versión del script y `claude plugin validate`).

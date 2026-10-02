@@ -121,10 +121,36 @@ MUTATIONS = [
   ['webhook de Discord', ->(d) { edit("#{d}/docs/glossary.md") { |t| "#{t}\nhttps://discord.com/api/webhooks/123/abc\n" } }, 'URL de webhook de Discord']
 ].freeze
 
+# Problemas de redacción que aparecen al reemplazar los marcadores (el dueño
+# se escribe con artículo, "el dueño", así que una frase mal armada se ve).
+def template_problems(dir)
+  problems = []
+  Dir.glob('**/*', File::FNM_DOTMATCH, base: dir).each do |rel|
+    path = File.join(dir, rel)
+    next if File.directory?(path) || rel.start_with?('scripts/')
+
+    text = File.read(path)
+    problems << "#{rel}: marcador sin reemplazar #{text[/\{\{[^}]*\}\}/]}" if text.match?(/\{\{[^}]*\}\}/)
+    problems << "#{rel}: \"de el\" en vez de \"del\"" if text.match?(/\bde\s+el dueño/)
+    problems << "#{rel}: el dueño en minúscula al empezar una oración" if text.match?(/(\A|[.!?]\s+|^[>\-*]?\s*)el dueño/)
+  end
+  Dir.glob(File.join(TEMPLATES, 'docs/*/_template.md')).each do |tpl|
+    title = File.read(tpl)[/^# .*$/]
+    next if tpl.include?('/decisions/')
+
+    problems << "#{tpl.sub("#{TEMPLATES}/", '')}: el título no usa <nombre> (#{title})" unless title.include?('<nombre>')
+  end
+  problems
+end
+
 failures = 0
 Dir.mktmpdir do |tmp|
   base = File.join(tmp, 'base')
   build_project(base)
+  problems = template_problems(base)
+  puts "#{problems.empty? ? '✓' : '✗'} plantillas sin problemas de redacción"
+  problems.each { |pr| puts "    #{pr}" }
+  failures += 1 unless problems.empty?
   out, ok = run_check(base)
   clean = ok && out.include?('0 errores')
   puts "#{clean ? '✓' : '✗'} proyecto recién creado pasa (#{out.lines.last.strip})"
@@ -142,5 +168,5 @@ Dir.mktmpdir do |tmp|
   end
 end
 
-puts "docs-check: #{MUTATIONS.size + 1 - failures}/#{MUTATIONS.size + 1} casos"
+puts "docs-check: #{MUTATIONS.size + 2 - failures}/#{MUTATIONS.size + 2} casos"
 exit(failures.zero? ? 0 : 1)
