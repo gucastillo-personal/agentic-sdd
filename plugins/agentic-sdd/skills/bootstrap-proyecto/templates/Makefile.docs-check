@@ -1,0 +1,7 @@
+
+# --- agentic-sdd ---------------------------------------------------------
+# Valida la base de conocimiento. Solo lectura y sin dependencias: Ruby con
+# su biblioteca estándar (YAML).
+.PHONY: docs-check
+docs-check:
+	@ruby scripts/docs-check.rb
