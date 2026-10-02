@@ -5,7 +5,7 @@ status: planned
 domains: ["[[domain-<nombre>]]"]
 ---
 
-# <nombre del repo>
+# <nombre>
 
 Rol, stack, gate, deploy, contratos y proveedores: entrada
 `repositories.<nombre>` de [`manifest.yaml`](../../manifest.yaml).

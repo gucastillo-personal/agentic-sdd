@@ -1,7 +1,7 @@
 {
   "name": "agentic-sdd",
   "displayName": "Agentic SDD",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Spec-driven development con un equipo de agentes especializados, gates de aprobación humana y una base de conocimiento por proyecto (manifest, notas, ADRs).",
   "author": {
     "name": "Gustavo Castillo"
