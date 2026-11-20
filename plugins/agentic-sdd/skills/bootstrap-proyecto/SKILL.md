@@ -104,7 +104,7 @@ project root:
 
 ```sh
 claude plugin marketplace add gucastillo-personal/agentic-sdd --scope project
-claude plugin install agentic-sdd@gucastillo-tools --scope project
+claude plugin install agentic-sdd@agentic-sdd-marketplace --scope project
 ```
 
 Project scope keeps the plugin, and its git-safety hooks, to this project.

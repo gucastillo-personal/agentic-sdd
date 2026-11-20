@@ -1,6 +1,6 @@
 {
-  "name": "gucastillo-tools",
-  "description": "Herramientas privadas de Gustavo Castillo para Claude Code",
+  "name": "agentic-sdd-marketplace",
+  "description": "Marketplace de agentic-sdd: spec-driven development con agentes para Claude Code",
   "owner": {
     "name": "Gustavo Castillo"
   },

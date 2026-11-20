@@ -4,7 +4,7 @@ Plugin privado de Claude Code con mi forma de trabajar: spec-driven
 development con un equipo de agentes especializados, gates de aprobación
 humana y una base de conocimiento por proyecto (manifest, notas, ADRs).
 
-Este repo es a la vez el **marketplace** (`gucastillo-tools`) y el
+Este repo es a la vez el **marketplace** (`agentic-sdd-marketplace`) y el
 **plugin** (`agentic-sdd`). Nada de un proyecto ni de un cliente vive acá.
 
 ## Qué trae
@@ -27,7 +27,7 @@ En el repo raíz del proyecto:
 
 ```sh
 claude plugin marketplace add gucastillo-personal/agentic-sdd --scope project
-claude plugin install agentic-sdd@gucastillo-tools --scope project
+claude plugin install agentic-sdd@agentic-sdd-marketplace --scope project
 ```
 
 y después, en una sesión, `/agentic-sdd:bootstrap-proyecto` (el bootstrap
