@@ -59,6 +59,9 @@ Licencia MIT.
 | `/agentic-sdd:feature` | Lleva una necesidad de punta a punta: contexto → PRD/spec → UX → diseño con ADRs → implementación → testing → cierre de conocimiento. Frena en cada fase hasta la aprobación explícita del dueño del proyecto |
 | `/agentic-sdd:bootstrap-proyecto` | Crea la base de conocimiento en un proyecto nuevo o existente: `CLAUDE.md`, `manifest.yaml`, constitution, `docs/` con plantillas, `specs/README.md`, `docs-check` y el plugin habilitado para el proyecto |
 | `/agentic-sdd:docs-check` | Valida la base de conocimiento y avisa si la copia del proyecto quedó vieja |
+| `/agentic-sdd:pause` | Cierra la sesión dejando un resumen durable (hecho, PRs, tareas, próximo paso, abiertos) en la memoria del proyecto; solo lectura de git/GitHub |
+| `/agentic-sdd:resume` | Retoma una feature leyendo ese resumen y contrastándolo con el estado real de git y GitHub; pide OK antes de actuar |
+| `/agentic-sdd:progress` | Avance en % de una spec según su `tasks.md`: total, por sección, discrepancias y qué bloquea el siguiente bloque |
 | 7 agentes | `product-agent`, `ux-agent`, `frontend-agent`, `backend-agent`, `ai-agent`, `devops-agent`, `tester-agent` (con el prefijo `agentic-sdd:`) |
 | Hook `guard-git` | Bloquea, en cualquier modo de permisos, el merge de PRs y el push a `main`/`master`. Ver abajo |
 
