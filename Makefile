@@ -1,6 +1,6 @@
 # agentic-sdd — chequeos del plugin. `make check` antes de cada PR.
 
-.PHONY: check agents agents-check hooks-test docs-check-test script-version-check validate
+.PHONY: agensi-zip check agents agents-check hooks-test docs-check-test script-version-check validate
 
 check: agents-check hooks-test docs-check-test script-version-check validate
 
@@ -22,3 +22,9 @@ script-version-check: ## si docs-check.rb cambió respecto de origin/main, su VE
 validate:        ## validación oficial del marketplace y del plugin
 	@claude plugin validate .
 	@claude plugin validate ./plugins/agentic-sdd
+
+agensi-zip:      ## arma dist/feature-sdd.zip (carpeta feature-sdd/ con SKILL.md) para subir a Agensi
+	@rm -rf dist/agensi && mkdir -p dist/agensi
+	@cp -R agensi/feature-sdd dist/agensi/feature-sdd
+	@cd dist/agensi && rm -f ../feature-sdd.zip && zip -qr ../feature-sdd.zip feature-sdd
+	@unzip -l dist/feature-sdd.zip

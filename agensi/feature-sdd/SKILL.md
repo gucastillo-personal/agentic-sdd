@@ -1,6 +1,16 @@
 ---
 name: feature-sdd
 description: Take a feature, bug or business need from a one-line idea to tested code through seven human-gated phases — context, PRD/spec, UX, design with ADRs, implementation, testing, knowledge closure. Stops after every phase until you explicitly approve. Use when you describe a new feature or change and want it specified, designed, built and verified step by step with a written trail (spec, plan, tasks, decisions) in the repo.
+summary: Seven-phase, human-gated pipeline that takes a feature from idea to tested code, leaving spec, plan, ADRs and docs in the repo.
+version: 0.2.0
+license: MIT
+tags: [spec-driven-development, workflow, adr, testing, planning]
+keywords: [feature, prd, spec, ux, design, adr, implementation, testing, approval gates]
+use_cases:
+  - Turn a one-line feature idea into a spec, plan and tasks before writing code
+  - Build a feature with explicit approval after each phase
+  - Keep decisions (ADRs) and docs in sync with what was built
+docs_url: https://github.com/gucastillo-personal/agentic-sdd
 ---
 
 # feature-sdd — spec-driven feature pipeline with approval gates
