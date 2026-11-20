@@ -1,5 +1,8 @@
 # agentic-sdd — chequeos del plugin. `make check` antes de cada PR.
 
+# Los scripts leen archivos UTF-8; no dependas del locale de la terminal.
+export RUBYOPT := $(RUBYOPT) -Eutf-8
+
 .PHONY: agensi-zip check agents agents-check hooks-test docs-check-test script-version-check validate
 
 check: agents-check hooks-test docs-check-test script-version-check validate

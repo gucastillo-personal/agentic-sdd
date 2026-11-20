@@ -13,6 +13,8 @@
 #   ruby scripts/build-agents.rb          # regenera los agentes
 #   ruby scripts/build-agents.rb --check  # falla si alguno está desactualizado
 
+Encoding.default_external = Encoding::UTF_8 # no depende del locale de la terminal
+
 ROOT = File.expand_path('..', __dir__)
 COMMON = File.join(ROOT, 'plugins/agentic-sdd/reference/specialist-common.md')
 SRC_DIR = File.join(ROOT, 'agents-src')
